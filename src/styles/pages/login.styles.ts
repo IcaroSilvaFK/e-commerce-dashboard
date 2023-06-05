@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Indicator, Root } from '@radix-ui/react-checkbox'
 
 export const LoginPageContainer = styled.main`
   display: flex;
@@ -59,6 +60,19 @@ export const FormContainer = styled.div`
     gap: 22px;
     width: 100%;
     max-width: 400px;
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      gap: 12px;
+
+      span {
+        font-size: ${({ theme }) => theme.fontSizes.xs};
+        color: ${({ theme }) => theme.colors.gray[500]};
+      }
+    }
   }
 
   h2 {
@@ -91,12 +105,33 @@ export const FooterForm = styled.footer`
   flex-direction: column;
   gap: 22px;
 
-  span {
+  div {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      color: ${({ theme }) => theme.colors.primary[600]};
+      font-size: ${({ theme }) => theme.fontSizes.sm};
+      font-weight: bold;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+  }
+
+  label {
     color: ${({ theme }) => theme.colors.gray[500]};
     font-size: ${({ theme }) => theme.fontSizes.sm};
     span {
       color: ${({ theme }) => theme.colors.gray[900]};
       font-weight: bold;
+    }
+
+    &.gray__900 {
+      color: ${({ theme }) => theme.colors.gray[900]};
     }
   }
 `
@@ -146,4 +181,25 @@ export const ContainerLeftFooter = styled.footer`
       }
     }
   }
+`
+
+export const CheckBoxRoot = styled(Root)`
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: ${({ theme }) => theme.radii.lg};
+  border: 1px solid ${({ theme }) => theme.colors.gray[200]};
+  background: transparent;
+
+  outline: 0;
+
+  &[aria-checked='true'] {
+    background: ${({ theme }) => theme.colors.primary[600]};
+  }
+`
+export const CheckBoxIndicator = styled(Indicator)`
+  background: ${({ theme }) => theme.colors.primary[600]};
 `

@@ -40,6 +40,7 @@ export const Input = styled.input`
   color: ${({ theme }) => theme.colors.gray[900]};
   background: transparent;
   font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: bold;
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.gray[400]};

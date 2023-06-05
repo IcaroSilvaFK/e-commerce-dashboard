@@ -8,14 +8,17 @@ import { Input, Button, Link } from '../../infra/shared'
 import * as S from '../../styles/pages/login.styles'
 
 const formSchema = z.object({
+  username: z.string().min(2, 'Informe um usuário válido'),
   password: z.string().min(8, 'Informe uma senha válida'),
   email: z.string().email('Informe um e-mail válido'),
 })
+
 type FormType = z.infer<typeof formSchema>
 
 export default function Page() {
   const methods = useForm<FormType>({
     defaultValues: {
+      username: '',
       password: '',
       email: '',
     },
@@ -27,6 +30,7 @@ export default function Page() {
   async function onSubmit(data: FormType) {
     console.log(data)
   }
+
   return (
     <>
       <Title>HIPHONIC | NEW ACCOUNT</Title>
@@ -41,12 +45,15 @@ export default function Page() {
         </S.ContainerLeftBlue>
         <S.FormContainer>
           <div>
-            <header>
-              <h2>Sign Up for an Account</h2>
-              <span>Welcome back! please enter your detail</span>
-            </header>
+            <h2>Sign Up for an Account</h2>
             <FormProvider {...methods}>
               <form onSubmit={handleSubmit(onSubmit)}>
+                <Input
+                  name="username"
+                  placeholder="Username"
+                  leftIcon={<img src="assets/user.svg" />}
+                />
+
                 <Input name="email" placeholder="Email" leftIcon={<img src="assets/mail.svg" />} />
                 <div className="password">
                   <Input
@@ -56,7 +63,6 @@ export default function Page() {
                   />
                   <span>Your password must have at least 8 characters</span>
                 </div>
-
                 <S.FooterForm>
                   <div>
                     <div>
@@ -66,13 +72,15 @@ export default function Page() {
                         </S.CheckBoxIndicator>
                       </S.CheckBoxRoot>
                       <label htmlFor="checkbox" className="gray__900">
-                        Remember me
+                        By creating an account means you agree to the{' '}
+                        <span> Terms & Conditions </span>
+                        and our<span> Privacy Policy</span>
                       </label>
                     </div>
-                    <Link href="#">Forgot your password?</Link>
                   </div>
+
                   <Button variant="solid" py="18px">
-                    Sign In
+                    Sign Up
                   </Button>
                 </S.FooterForm>
               </form>
@@ -93,9 +101,8 @@ export default function Page() {
                   Facebook
                 </Button>
               </div>
-              <Link href="/create_account">
-                Don’t have an account?
-                <span>Sign Up</span>
+              <Link href="#">
+                Already have an account? <span>Log In</span>
               </Link>
             </S.ContainerLeftFooter>
           </div>

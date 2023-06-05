@@ -1,21 +1,35 @@
 import styled from 'styled-components'
 
 export const InputContainer = styled.label`
-  border: 1px solid ${({ theme }) => theme.colors.gray[200]};
-  border-radius: ${({ theme }) => theme.radii.xl};
-
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 6px;
-  padding: 12px 16px;
 
   max-width: 400px;
   width: 100%;
+  transition: all 0.3s linear;
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: border-color 0.3s linear;
+    padding: 12px 16px;
+    border: 1px solid ${({ theme }) => theme.colors.gray[200]};
+    border-radius: ${({ theme }) => theme.radii.xl};
+    &:focus-within {
+      border-color: ${({ theme }) => theme.colors.primary[400]};
+    }
+  }
+  &.error div {
+    border-color: ${({ theme }) => theme.colors.secondary.pink[500]};
+  }
+  > span {
+    color: ${({ theme }) => theme.colors.secondary.pink[500]};
 
-  transition: border-color 0.3s linear;
-
-  &:focus-within {
-    border-color: ${({ theme }) => theme.colors.primary[400]};
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: ${({ theme }) => theme.fontSizes.xs};
   }
 `
 

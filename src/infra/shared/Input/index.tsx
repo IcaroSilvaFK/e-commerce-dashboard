@@ -1,43 +1,41 @@
 import { useFormContext, Controller } from 'react-hook-form'
-import { InputHTMLAttributes } from 'react'
+import { InputHTMLAttributes, useId } from 'react'
 
 import * as S from './styles'
 
-interface IContainerProps {
-  children: React.ReactNode
-  from?: string
-}
-
-function Container(props: IContainerProps) {
-  const { children, from } = props
-
-  return <S.InputContainer htmlFor={from}>{children}</S.InputContainer>
-}
-
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string
+  leftIcon?: React.ReactNode
+  rightIcon?: React.ReactNode
 }
 
-function Input(props: IInputProps) {
-  const { name, ...rest } = props
-  const { control } = useFormContext()
+export function Input(props: IInputProps) {
+  const { name, leftIcon, rightIcon, ...rest } = props
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext()
+  const inputId = useId()
 
   return (
     <Controller
       name={name}
       control={control}
-      render={({ field }) => <S.Input {...rest} {...field} />}
+      render={({ field }) => (
+        <S.InputContainer htmlFor={inputId} className={errors[name] ? 'error' : ''}>
+          <div>
+            <S.InputIcon>{leftIcon}</S.InputIcon>
+            <S.Input {...rest} {...field} id={inputId} />
+
+            <S.InputIcon>{rightIcon}</S.InputIcon>
+          </div>
+          {errors[name] && (
+            <span>
+              <img src="assets/alert.svg" /> {errors[name]?.message as string}
+            </span>
+          )}
+        </S.InputContainer>
+      )}
     />
   )
-}
-
-function InputIcon(props: IContainerProps) {
-  const { children } = props
-  return <S.InputIcon>{children}</S.InputIcon>
-}
-
-export const InputRoot = {
-  Container,
-  Input,
-  InputIcon,
 }

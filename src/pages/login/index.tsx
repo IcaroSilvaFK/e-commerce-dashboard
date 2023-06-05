@@ -1,17 +1,16 @@
 import { FormProvider, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useId } from 'react'
 
 import { Title } from '@title'
+import { Input, Button, Link } from '../../infra/shared'
 
-import { InputRoot } from '../../infra/shared/Input'
 import * as S from '../../styles/pages/login.styles'
 
 const formSchema = z.object({
-  username: z.string().min(2),
-  password: z.string().min(8),
-  email: z.string().email(),
+  username: z.string().min(2, 'Informe um usuário válido'),
+  password: z.string().min(8, 'Informe uma senha válida'),
+  email: z.string().email('Informe um e-mail válido'),
 })
 
 type FormType = z.infer<typeof formSchema>
@@ -25,9 +24,12 @@ export default function Page() {
     },
     resolver: zodResolver(formSchema),
   })
-  const inputUsername = useId()
-  const inputEmail = useId()
-  const inputPassword = useId()
+
+  const { handleSubmit } = methods
+
+  async function onSubmit(data: FormType) {
+    console.log(data)
+  }
 
   return (
     <>
@@ -45,26 +47,20 @@ export default function Page() {
           <div>
             <h2>Sign Up for an Account</h2>
             <FormProvider {...methods}>
-              <form>
-                <InputRoot.Container from={inputUsername}>
-                  <InputRoot.InputIcon>
-                    <img src="assets/user.svg" />
-                  </InputRoot.InputIcon>
-                  <InputRoot.Input name="username" placeholder="Username" id={inputUsername} />
-                </InputRoot.Container>
-                <InputRoot.Container from={inputEmail}>
-                  <InputRoot.InputIcon>
-                    <img src="assets/mail.svg" />
-                  </InputRoot.InputIcon>
-                  <InputRoot.Input name="email" placeholder="Email" id={inputEmail} />
-                </InputRoot.Container>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <Input
+                  name="username"
+                  placeholder="Username"
+                  leftIcon={<img src="assets/user.svg" />}
+                />
+
+                <Input name="email" placeholder="Email" leftIcon={<img src="assets/mail.svg" />} />
                 <div className="password">
-                  <InputRoot.Container from={inputPassword}>
-                    <InputRoot.InputIcon>
-                      <img src="assets/lock.svg" />
-                    </InputRoot.InputIcon>
-                    <InputRoot.Input name="password" placeholder="Password" id={inputPassword} />
-                  </InputRoot.Container>
+                  <Input
+                    name="password"
+                    placeholder="Password"
+                    leftIcon={<img src="assets/lock.svg" />}
+                  />
                   <span>Your password must have at least 8 characters</span>
                 </div>
                 <S.FooterForm>
@@ -72,9 +68,32 @@ export default function Page() {
                     By creating an account means you agree to the <span> Terms & Conditions </span>
                     and our<span> Privacy Policy</span>
                   </span>
+                  <Button variant="solid" py="18px">
+                    Sign Up
+                  </Button>
                 </S.FooterForm>
               </form>
             </FormProvider>
+            <S.ContainerLeftFooter>
+              <div className="separator">
+                <div />
+                <span>Or Sign up with</span>
+                <div />
+              </div>
+              <div>
+                <Button variant="outline" py="16px">
+                  <img src="/assets/google.svg" />
+                  Google
+                </Button>
+                <Button variant="outline" py="16px">
+                  <img src="/assets/facebook.svg" />
+                  Facebook
+                </Button>
+              </div>
+              <Link href="#">
+                Already have an account? <span>Log In</span>
+              </Link>
+            </S.ContainerLeftFooter>
           </div>
         </S.FormContainer>
       </S.LoginPageContainer>

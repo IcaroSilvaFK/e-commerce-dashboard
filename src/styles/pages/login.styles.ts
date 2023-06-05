@@ -56,7 +56,7 @@ export const FormContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 22px;
     width: 100%;
     max-width: 400px;
   }
@@ -78,7 +78,7 @@ export const FormContainer = styled.div`
       display: flex;
       flex-direction: column;
       gap: 12px;
-      span {
+      > span {
         color: ${({ theme }) => theme.colors.gray[500]};
         font-size: ${({ theme }) => theme.fontSizes.xs};
       }
@@ -87,12 +87,63 @@ export const FormContainer = styled.div`
 `
 
 export const FooterForm = styled.footer`
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
   span {
     color: ${({ theme }) => theme.colors.gray[500]};
     font-size: ${({ theme }) => theme.fontSizes.sm};
     span {
       color: ${({ theme }) => theme.colors.gray[900]};
       font-weight: bold;
+    }
+  }
+`
+
+export const ContainerLeftFooter = styled.footer`
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  .separator {
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    div {
+      width: 100%;
+      flex: 1;
+      height: 1px;
+      background: ${({ theme }) => theme.colors.gray[200]};
+    }
+
+    span {
+      color: ${({ theme }) => theme.colors.gray[500]};
+      font-size: ${({ theme }) => theme.fontSizes.sm};
+    }
+  }
+
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  a {
+    text-align: center;
+    span {
+      font-weight: bold;
+      color: ${({ theme }) => theme.colors.primary[600]};
+    }
+
+    &:hover {
+      span {
+        text-decoration: underline;
+      }
     }
   }
 `

@@ -27,6 +27,7 @@ export default function Page() {
   async function onSubmit(data: FormType) {
     console.log(data)
   }
+
   return (
     <>
       <Title>HIPHONIC | NEW ACCOUNT</Title>

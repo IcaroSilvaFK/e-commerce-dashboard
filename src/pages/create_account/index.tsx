@@ -101,7 +101,7 @@ export default function Page() {
                   Facebook
                 </Button>
               </div>
-              <Link href="#">
+              <Link href="/login">
                 Already have an account? <span>Log In</span>
               </Link>
             </S.ContainerLeftFooter>

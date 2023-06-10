@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, ReactNode } from 'react'
 
 import * as S from './styles'
 
-interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant: 'solid' | 'outline' | 'link'
   children: ReactNode
   px?: string

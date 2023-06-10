@@ -4,19 +4,28 @@
     "es2021": true,
     "node": true
   },
-
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:storybook/recommended"
   ],
-  "ignorePatterns": ["/node_modules/", ".build", ".next"],
+  "ignorePatterns": [
+    "/node_modules/",
+    ".build",
+    ".next"
+  ],
   "overrides": [
     {
-      "files": ["**/__test__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
-      "extends": ["plugin:testing-library/react"]
+      "files": [
+        "**/__test__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": [
+        "plugin:testing-library/react"
+      ]
     }
   ],
   "parser": "@typescript-eslint/parser",
@@ -27,8 +36,12 @@
       "jsx": true
     }
   },
-
-  "plugins": ["react", "@typescript-eslint", "prettier", "testing-library"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier",
+    "testing-library"
+  ],
   "rules": {
     "prettier/prettier": "error",
     "react/prop-types": "off",
@@ -47,7 +60,12 @@
       }
     ],
     "@typescript-eslint/no-var-requires": "off",
-    "camelcase": [2, { "properties": "always" }],
+    "camelcase": [
+      2,
+      {
+        "properties": "always"
+      }
+    ],
     "no-unused-vars": "error",
     "eslint-disable-next-line testing-library/prefer-screen-queries": "off"
   }

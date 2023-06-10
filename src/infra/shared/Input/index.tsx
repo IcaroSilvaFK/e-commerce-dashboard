@@ -3,7 +3,7 @@ import { InputHTMLAttributes, useId } from 'react'
 
 import * as S from './styles'
 
-interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode

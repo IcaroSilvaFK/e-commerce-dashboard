@@ -2,6 +2,7 @@ import { BsFillGridFill, BsPlusLg } from 'react-icons/bs'
 import { BiMessageSquareCheck } from 'react-icons/bi'
 
 import { Link } from '../Link'
+import Logo from '../../../assets/logo_blue.png'
 
 import * as S from './styles'
 
@@ -9,7 +10,7 @@ export function Navigation() {
   return (
     <S.Container>
       <header>
-        <img src="/assets/logo_blue.svg" alt="Logo" />
+        <img src={Logo.src} alt="Logo" />
       </header>
       <div>
         <h3>Menu</h3>

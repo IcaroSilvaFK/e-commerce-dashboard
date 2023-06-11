@@ -9,7 +9,7 @@ import { Input, Profile } from '../../../infra/shared'
 
 import * as S from '../../../styles/pages/app-home.styles'
 import { useTheme } from 'styled-components'
-import { RecentProjects, Chart } from 'components'
+import { RecentProjects, Chart, TasksSummary } from 'components'
 
 export default function Page() {
   const { colors } = useTheme()
@@ -52,7 +52,7 @@ export default function Page() {
             <RecentProjects />
             <S.RowSection>
               <Chart />
-              <Chart />
+              <TasksSummary />
             </S.RowSection>
           </section>
           <section>

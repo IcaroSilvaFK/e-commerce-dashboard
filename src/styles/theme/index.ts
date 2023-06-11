@@ -56,6 +56,7 @@ export const theme = {
       indigo: '#6366F1',
       white: '#FFFFFF',
       alpha1: 'rgba(0, 0, 0, 0.1)',
+      aqua: '#38BDF8',
     },
   },
   fonts: {

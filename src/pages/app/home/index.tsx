@@ -9,7 +9,13 @@ import { Input, Profile } from '../../../infra/shared'
 
 import * as S from '../../../styles/pages/app-home.styles'
 import { useTheme } from 'styled-components'
-import { RecentProjects, Chart, TasksSummary } from 'components'
+import {
+  RecentProjects,
+  Chart,
+  TasksSummary,
+  TasksViewHomeList,
+  TransactionsHistory,
+} from 'components'
 
 export default function Page() {
   const { colors } = useTheme()
@@ -54,6 +60,7 @@ export default function Page() {
               <Chart />
               <TasksSummary />
             </S.RowSection>
+            <TasksViewHomeList />
           </section>
           <section>
             <S.CalendarSection>
@@ -61,6 +68,7 @@ export default function Page() {
                 <DateCalendar defaultValue={dayjs()} />
               </LocalizationProvider>
             </S.CalendarSection>
+            <TransactionsHistory />
           </section>
         </S.Body>
       </S.ContainerHomePage>

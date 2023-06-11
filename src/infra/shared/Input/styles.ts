@@ -40,7 +40,6 @@ export const Input = styled.input`
   color: ${({ theme }) => theme.colors.gray[900]};
   background: transparent;
   font-size: ${({ theme }) => theme.fontSizes.md};
-  font-weight: bold;
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.gray[400]};
@@ -51,4 +50,11 @@ export const Input = styled.input`
   }
 `
 
-export const InputIcon = styled.div``
+export const InputIcon = styled.div`
+  width: 24px;
+  height: 24px;
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+`

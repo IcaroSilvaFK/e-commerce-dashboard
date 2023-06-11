@@ -18,7 +18,9 @@ export const GlobalStyle = createGlobalStyle`
 
     font-size: 1rem;
     background:${({ theme }) => theme.colors.gray[50]};
-    
+    line-height: 150%;
+
+
   }
   
   body,html,input,textarea,button {

@@ -1,11 +1,18 @@
 import { Title } from '@title'
 import { FormProvider, useForm } from 'react-hook-form'
+import { MdOutlineSearch } from 'react-icons/md'
+import { DateCalendar, LocalizationProvider } from '@mui/x-date-pickers'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import dayjs from 'dayjs'
 
-import { Input } from '../../../infra/shared'
+import { Input, Profile } from '../../../infra/shared'
 
 import * as S from '../../../styles/pages/app-home.styles'
+import { useTheme } from 'styled-components'
+import { RecentProjects, Chart } from 'components'
 
 export default function Page() {
+  const { colors } = useTheme()
   const methods = useForm<{ search: string }>({
     defaultValues: {
       search: '',
@@ -26,11 +33,36 @@ export default function Page() {
           <div>
             <FormProvider {...methods}>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <Input name="search" />
+                <Input
+                  name="search"
+                  leftIcon={<MdOutlineSearch size={22} color={colors.gray[500]} />}
+                  placeholder="Search..."
+                />
               </form>
             </FormProvider>
+            <Profile
+              name="Icaro Vieira"
+              avatar="https://avatars.githubusercontent.com/u/86238635?v=4"
+              charge="Desenvolvedor"
+            />
           </div>
         </S.Header>
+        <S.Body>
+          <section>
+            <RecentProjects />
+            <S.RowSection>
+              <Chart />
+              <Chart />
+            </S.RowSection>
+          </section>
+          <section>
+            <S.CalendarSection>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DateCalendar defaultValue={dayjs()} />
+              </LocalizationProvider>
+            </S.CalendarSection>
+          </section>
+        </S.Body>
       </S.ContainerHomePage>
     </>
   )

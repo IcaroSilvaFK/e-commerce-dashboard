@@ -9,7 +9,7 @@ export const Container = styled.nav`
   padding: 24px;
 
   background: ${({ theme }) => theme.colors.additional.white};
-  border-left: 1px solid ${({ theme }) => theme.colors.gray[100]};
+  border-right: 2px solid ${({ theme }) => theme.colors.gray[100]};
   > header {
     border-bottom: 1px solid ${({ theme }) => theme.colors.gray[100]};
 

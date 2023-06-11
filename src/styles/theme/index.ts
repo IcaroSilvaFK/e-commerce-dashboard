@@ -55,6 +55,7 @@ export const theme = {
       emerald: '#34D399',
       indigo: '#6366F1',
       white: '#FFFFFF',
+      alpha1: 'rgba(0, 0, 0, 0.1)',
     },
   },
   fonts: {

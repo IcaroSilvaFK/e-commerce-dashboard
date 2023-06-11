@@ -4,7 +4,7 @@ export const ProfileContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-
+  line-height: 100%;
   img {
     width: 40px;
     height: 40px;
@@ -15,7 +15,6 @@ export const ProfileContainer = styled.div`
   div {
     display: flex;
     flex-direction: column;
-    gap: 4px;
 
     b {
       font-size: 0.875rem;

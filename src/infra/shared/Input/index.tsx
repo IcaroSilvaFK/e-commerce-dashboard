@@ -24,10 +24,9 @@ export function Input(props: IInputProps) {
       render={({ field }) => (
         <S.InputContainer htmlFor={inputId} className={errors[name] ? 'error' : ''}>
           <div>
-            <S.InputIcon>{leftIcon}</S.InputIcon>
+            {leftIcon && <S.InputIcon>{leftIcon}</S.InputIcon>}
             <S.Input {...rest} {...field} id={inputId} />
-
-            <S.InputIcon>{rightIcon}</S.InputIcon>
+            {rightIcon && <S.InputIcon>{rightIcon}</S.InputIcon>}
           </div>
           {errors[name] && (
             <span>

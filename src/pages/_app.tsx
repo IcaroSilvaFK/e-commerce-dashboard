@@ -1,13 +1,32 @@
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
 import { useRouter } from 'next/router'
-import { Layout } from '../infra/shared'
 
+import {
+  Chart,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip,
+  Filler,
+} from 'chart.js'
+
+import { Layout } from '../infra/shared'
 import { theme } from '../styles/theme/index'
 import { GlobalStyle } from '../styles/global'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { pathname } = useRouter()
+
+  Chart.register({
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Tooltip,
+    Filler,
+  })
 
   if (pathname.includes('/app')) {
     return (

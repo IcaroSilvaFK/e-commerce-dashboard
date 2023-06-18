@@ -11,11 +11,13 @@ export const ContainerChart = styled.div`
 
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  justify-content: space-between;
+  gap: 22px;
 
-  header {
-    h3 {
-      font-size: 1rem;
-    }
+  div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `

@@ -19,6 +19,8 @@ export function TasksViewHomeList() {
       <S.TasksListContainer>
         <TaskListItem />
         <TaskListItem />
+        <TaskListItem />
+        <TaskListItem />
       </S.TasksListContainer>
     </S.TasksViewHomeListContainer>
   )

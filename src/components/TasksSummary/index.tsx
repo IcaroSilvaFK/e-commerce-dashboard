@@ -25,7 +25,6 @@ export function TasksSummary() {
           tasks={79}
           variant="lightblue"
         />
-        <CardSummary icon={<FiUserCheck size={22} />} title="Closed" tasks={89} variant="gray" />
       </div>
       <footer>
         <div>

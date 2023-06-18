@@ -38,6 +38,8 @@ export const CheckBoxContainer = styled(CheckBox.Root)`
   align-items: center;
   justify-content: center;
 
+  transition: background 0.3 linear;
+
   &[aria-checked='true'] {
     background: ${({ theme }) => theme.colors.primary[500]};
   }

@@ -33,6 +33,14 @@ export const Body = styled.main`
     padding: 32px;
     gap: 22px;
   }
+  section:first-child {
+    max-height: 90vh;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 `
 
 export const CalendarSection = styled.div`
@@ -43,7 +51,7 @@ export const CalendarSection = styled.div`
 
 export const RowSection = styled.div`
   display: flex;
-  align-items: flex-start;
+
   justify-content: space-between;
   gap: 32px;
 `

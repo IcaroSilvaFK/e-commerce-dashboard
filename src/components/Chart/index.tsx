@@ -57,7 +57,9 @@ export function Chart() {
       <header>
         <h3>Activity</h3>
       </header>
-      <Line options={options} data={data} width={450} />
+      <div>
+        <Line options={options} data={data} width={450} />
+      </div>
     </S.ContainerChart>
   )
 }
